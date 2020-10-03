@@ -58,6 +58,7 @@ gem 'friendly_id', '~> 5.3'
 gem 'image_processing'
 gem 'sidekiq', '~> 6.1', '>= 6.1.1'
 gem 'name_of_person', '~> 1.1', '>= 1.1.1'
+
 group :development, :test do
   gem 'database_cleaner'
   gem 'factory_bot_rails', git: 'http://github.com/thoughtbot/factory_bot_rails'
