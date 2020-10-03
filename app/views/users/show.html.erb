@@ -1,0 +1,18 @@
+<div class="container mx-auto mt-8">
+  <div class="flex justify-center">
+    <% if !current_user.avatar.nil? %>
+      <%= image_tag avatar_url_for(current_user, size: 80), class: "rounded-full mr-2" if current_user.id == @user.id %>
+    <% end %>
+    <div>
+      <h2><%= @user.name %></h2>
+      <p class="text-indigo-700 hover:text-pink-700 hover:font-semibold">
+        <%= link_to 'Edit Profile', edit_user_registration_path(current_user), class: "" %>
+      </p>
+    </div>
+  </div>
+  <div class="py-8">
+    <div class="text-center">
+      Follow List stuff
+    </div>
+  </div>
+</div>
