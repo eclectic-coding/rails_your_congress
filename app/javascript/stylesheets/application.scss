@@ -53,3 +53,8 @@ p {
 small, .text-small {
   font-size: var(--text-sm);
 }
+
+.debug_dump {
+  @apply overflow-hidden bg-gray-300 rounded shadow;
+  @apply p-4 m-5;
+}
