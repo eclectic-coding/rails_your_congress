@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_03_162143) do
+ActiveRecord::Schema.define(version: 2020_10_04_180708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,36 @@ ActiveRecord::Schema.define(version: 2020_10_03_162143) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "representatives", force: :cascade do |t|
+    t.string "chamber"
+    t.string "member_id"
+    t.string "title"
+    t.string "short_title"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "date_of_birth"
+    t.string "gender"
+    t.string "party"
+    t.string "party_full_name"
+    t.integer "age"
+    t.string "twitter_account"
+    t.string "facebook_account"
+    t.string "youtube_account"
+    t.string "website"
+    t.string "contact_form"
+    t.integer "seniority"
+    t.string "next_election"
+    t.string "office"
+    t.string "phone"
+    t.string "phone_clickable"
+    t.string "state"
+    t.string "district"
+    t.decimal "missed_votes_pct"
+    t.decimal "votes_with_party_pct"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

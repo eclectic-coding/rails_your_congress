@@ -58,3 +58,27 @@ small, .text-small {
   @apply overflow-hidden bg-gray-300 rounded shadow;
   @apply p-4 m-5;
 }
+
+.icon {
+  @apply text-xl text-gray-500;
+  @apply no-underline;
+}
+
+.icon:hover,
+.icon:focus {
+  @apply text-blue-300;
+}
+
+.pagination {
+  @apply flex justify-center;
+  @apply my-2 py-2;
+}
+
+.pagination * {
+  @apply px-3 py-2 mx-3;
+  @apply text-gray-700 no-underline bg-white rounded-lg;
+}
+
+.pagination a:hover {
+  @apply font-semibold text-gray-200 bg-gray-700;
+}

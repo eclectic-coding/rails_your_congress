@@ -1,0 +1,70 @@
+<div class="container mx-auto">
+  <h1 class="text-center text-2xl font-bold leading-loose text-indigo-700 mt-8">
+    Representatives
+  </h1>
+  <div class="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+    <% @representatives.each do |representative| %>
+      <div>
+        <div class="max-w-sm rounded-lg overflow-hidden shadow-lg bg-white m-4">
+          <div class="flex flex-col">
+            <%= link_to representative_path(representative.member_id), "aria-label": "Link to #{representative.short_title} #{representative.last_name}'s profile page." do %>
+              <%= image_tag "https://theunitedstates.io/images/congress/225x275/#{representative.member_id}.jpg",
+                            alt: "#{representative.short_title} #{representative.last_name}'s' portrait.",
+                            class: "w-full" %>
+            <% end %>
+          </div>
+          <div class="text-xl text-center no-underline">
+            <%= fullname_helper(representative) %>
+            <div class="text-gray-700 text-base text-center">
+              <%= fullparty_helper(representative.party) %> - <%= representative.state %>
+            </div>
+            <div class="text-gray-700 text-base text-center">
+              Age: <%= age_helper(representative.date_of_birth) %>
+            </div>
+            <div class="px-5 py-3 border-t bg-gray-200 flex justify-around">
+              <% unless representative.facebook_account.nil? %>
+                <%= link_to facebook_helper(representative.facebook_account),
+                            "aria-label": "#{representative.short_title} #{representative.last_name}'s Facebook account." do %>
+                  <i class="fab fa-facebook icon" aria-hidden="true"></i>
+                <% end %>
+              <% end %>
+              <% unless representative.twitter_account.nil? %>
+                <%= link_to twitter_helper(representative.twitter_account),
+                            "aria-label": "#{representative.short_title} #{representative.last_name}'s Twitter account." do %>
+                  <i class="fab fa-twitter icon" aria-hidden="true"></i>
+                <% end %>
+              <% end %>
+              <% unless representative.youtube_account.nil? %>
+                <%= link_to youtube_helper(representative.youtube_account),
+                            "aria-label": "#{representative.short_title} #{representative.last_name}'s Youtube account." do %>
+                  <i class="fab fa-youtube icon" aria-hidden="true"></i>
+                <% end %>
+              <% end %>
+              <% unless representative.website.nil? %>
+                <%= link_to representative.website,
+                            "aria-label": "#{representative.short_title} #{representative.last_name}'s website link." do %>
+                  <i class="fas fa-home icon" aria-hidden="true"></i>
+                <% end %>
+              <% end %>
+              <% unless representative.contact_form.nil? %>
+                <%= link_to representative.contact_form,
+                            "aria-label": "#{representative.short_title} #{representative.last_name}'s website link." do %>
+                  <i class="fas fa-envelope-open icon" aria-hidden="true"></i>
+                <% end %>
+              <% end %>
+              <% unless representative.phone.nil? %>
+                <a href="tel: <%= phone_helper(representative.phone) %>">
+                  <i class="fas fa-phone-volume icon"></i>
+                </a>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+  <div class="mx-auto">
+    <%= will_paginate %>
+  </div>
+</div>

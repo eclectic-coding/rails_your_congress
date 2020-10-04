@@ -4,6 +4,7 @@ ruby '2.7.1'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise', '~> 4.7', '>= 4.7.2'
+gem 'faraday'
 gem 'friendly_id', '~> 5.3'
 gem 'image_processing'
 gem 'jbuilder', '~> 2.7'
@@ -15,6 +16,7 @@ gem 'sass-rails', '>= 6'
 gem 'sidekiq', '~> 6.1', '>= 6.1.1'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
+gem 'will_paginate'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
