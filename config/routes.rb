@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'senators/index'
+  get 'senators/show'
   root to: 'static#home'
 
   devise_for :users

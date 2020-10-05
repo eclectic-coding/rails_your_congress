@@ -1,6 +1,6 @@
-class CreateRepresentatives < ActiveRecord::Migration[6.0]
+class CreateSenators < ActiveRecord::Migration[6.0]
   def change
-    create_table :representatives do |t|
+    create_table :senators do |t|
       t.string :chamber
       t.string :member_id
       t.string :title
@@ -30,4 +30,3 @@ class CreateRepresentatives < ActiveRecord::Migration[6.0]
     end
   end
 end
-
