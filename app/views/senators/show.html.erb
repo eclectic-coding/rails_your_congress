@@ -1,2 +1,81 @@
-<h1>Senators#show</h1>
-<p>Find me in app/views/senators/show.html.erb</p>
+<div class="container mx-auto px-12 py-4">
+  <div class="mx-auto max-w-sm lg:max-w-xl lg:flex bg-white rounded-lg border shadow-lg pb-6 lg:pb-0">
+    <div class="w-full lg:w-1/3 lg:p-4">
+      <%= image_tag "https://theunitedstates.io/images/congress/225x275/#{@senator.member_id}.jpg", class: "h-64 lg:h-full object-cover object-center w-full" %>
+    </div>
+    <div class="w-full lg:w-2/3 p-4">
+      <div class="inline-grid">
+        <p class="work-sans font-semibold text-xl">
+          <%= fullname_helper(@senator) %>
+        </p>
+        <div class="text-normal text-sm font-normal">
+          <%= fullparty_helper(@senator.party) %> - <%= @senator.state %>
+        </div>
+        <div class="px-5 py-3 flex justify-around">
+          <% unless @senator.facebook_account.nil? %>
+            <%= link_to facebook_helper(@senator.facebook_account),
+                        "aria-label": "#{@senator.short_title} #{@senator.last_name}'s Facebook account." do %>
+              <i class="fab fa-facebook icon" aria-hidden="true"></i>
+            <% end %>
+          <% end %>
+          <% unless @senator.twitter_account.nil? %>
+            <%= link_to twitter_helper(@senator.twitter_account),
+                        "aria-label": "#{@senator.short_title} #{@senator.last_name}'s Twitter account." do %>
+              <i class="fab fa-twitter icon" aria-hidden="true"></i>
+            <% end %>
+          <% end %>
+          <% unless @senator.youtube_account.nil? %>
+            <%= link_to youtube_helper(@senator.youtube_account),
+                        "aria-label": "#{@senator.short_title} #{@senator.last_name}'s Youtube account." do %>
+              <i class="fab fa-youtube icon" aria-hidden="true"></i>
+            <% end %>
+          <% end %>
+          <% unless @senator.website.nil? %>
+            <%= link_to @senator.website,
+                        "aria-label": "#{@senator.short_title} #{@senator.last_name}'s website link." do %>
+              <i class="fas fa-home icon" aria-hidden="true"></i>
+            <% end %>
+          <% end %>
+          <% unless @senator.contact_form.nil? %>
+            <%= link_to @senator.contact_form,
+                        "aria-label": "#{@senator.short_title} #{@senator.last_name}'s contact form." do %>
+              <i class="fas fa-envelope-open icon" aria-hidden="true"></i>
+            <% end %>
+          <% end %>
+          <% unless @senator.phone.nil? %>
+            <a href="tel: <%= phone_helper(@senator.phone) %>">
+              <i class="fas fa-phone-volume icon"></i>
+            </a>
+          <% end %>
+        </div>
+        <p class="raleway text-sm my-4">
+          Age: <%= age_helper(@senator.date_of_birth) %> &nbsp;
+          Years in Office: <%= @senator.seniority %> &nbsp;
+          Next Election: <%= @senator.next_election %> <br>
+        </p>
+        <p class="font-bold">Voting Record</p>
+        <div>
+          <% unless @senator.missed_votes_pct.nil? %>
+            Missed Votes: <%= @senator.missed_votes_pct %>
+          <% end %>
+        </div>
+        <div>
+          <% unless @senator.votes_with_party_pct.nil? %>
+            Votes with Party: <%= @senator.votes_with_party_pct %>
+          <% end %>
+        </div>
+      </div>
+      <div class="mx-auto flex justify-center mt-8 rounded-b-lg max-w-xs lg:max-w-lg lg:mt-8 lg:justify-end lg:pr-8 py-1">
+        <button type="button" class="text-white py-3 px-4 rounded-lg bg-indigo-700">
+          <% if !user_signed_in? %>
+            <p class="work-sans font-semibold text-sm tracking-wide rounded opacity-50 cursor-not-allowed">
+              Log in to save to a follow list
+            </p>
+          <% else %>
+            <%= link_to 'Add to Follow List', root_path, class: "work-sans font-semibold text-sm tracking-wide" %>
+          <% end %>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
