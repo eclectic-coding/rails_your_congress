@@ -29,6 +29,7 @@ representatives.each do |representative|
     phone: representative['phone'],
     state: representative['state'],
     missed_votes_pct: representative['missed_votes_pct'],
-    votes_with_party_pct: representative['votes_with_party_pct']
+    votes_with_party_pct: representative['votes_with_party_pct'],
+  district: representative['district']
     )
 end
