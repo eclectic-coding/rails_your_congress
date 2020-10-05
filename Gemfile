@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.7.2'
+ruby '2.7.1'
 
 gem 'devise', '~> 4.7', '>= 4.7.2'
 gem 'bootsnap', '>= 1.4.2', require: false
