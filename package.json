@@ -2,7 +2,7 @@
   "name": "rails_your_congress",
   "private": true,
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.0",
+    "@fortawesome/fontawesome-free": "^5.15.1",
     "@fullhuman/postcss-purgecss": "^3.0.0",
     "@rails/actioncable": "^6.0.2",
     "@rails/activestorage": "^6.0.2",
