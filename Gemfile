@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 
 ruby '2.7.2'
 
-gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise', '~> 4.7', '>= 4.7.2'
+gem 'bootsnap', '>= 1.4.2', require: false
 gem 'faraday'
 gem 'friendly_id', '~> 5.3'
 gem 'image_processing'
@@ -25,8 +25,8 @@ group :development, :test do
   gem 'rspec-rails'
 end
 
-group :development do
   gem 'fuubar'
+group :development do
   gem 'guard'
   gem 'guard-rspec'
   gem 'listen', '~> 3.2'
