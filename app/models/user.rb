@@ -6,6 +6,7 @@ class User < ApplicationRecord
          :confirmable
 
   has_person_name
+
   has_one_attached :avatar
 
 end
