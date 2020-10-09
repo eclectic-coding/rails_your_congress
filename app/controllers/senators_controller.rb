@@ -1,7 +1,12 @@
 class SenatorsController < ApplicationController
 
   def index
-    @senators = Senator.paginate(page: params[:page], per_page: 20)
+    if params[:search].present?
+      @sens = Senator.perform_search(params[:search])
+      @senators = @sens.paginate(page: params[:page], per_page: 20)
+    else
+      @senators = Senator.paginate(page: params[:page], per_page: 20)
+    end
   end
 
   def show
