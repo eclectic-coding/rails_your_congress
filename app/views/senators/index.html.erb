@@ -5,79 +5,28 @@
     Senators
   </h1>
 
-  <div class="input-group">
-    <%= form_tag(senators_path, method: :get) do %>
-      <%= text_field :search, nil, placeholder: "Search Senators by name or State abbreviation ...", class: "input" %>
-      <%= submit_tag "" %>
-    <% end %>
-    <%= @senators.count %>
-  </div>
 
-  <div id="senator-container">
-    <div class="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
-      <% @senators.each do |senator| %>
-        <div>
-          <div class="max-w-sm rounded-lg overflow-hidden shadow-lg bg-white m-4">
-            <div class="flex flex-col">
-              <%= link_to senator_path(senator.member_id), "aria-label": "Link to #{senator.short_title} #{senator.last_name}'s profile page." do %>
-                <%= image_tag "https://theunitedstates.io/images/congress/225x275/#{senator.member_id}.jpg",
-                              alt: "#{senator.short_title} #{senator.last_name}'s' portrait.",
-                              class: "w-full" %>
-              <% end %>
-            </div>
-            <div class="text-xl text-center no-underline">
-              <%= fullname_helper(senator) %>
-              <div class="text-gray-700 text-base text-center">
-                <%= fullparty_helper(senator.party) %> - <%= senator.state %>
-              </div>
-              <div class="text-gray-700 text-base text-center">
-                Age: <%= age_helper(senator.date_of_birth) %>
-              </div>
-              <div class="px-5 py-3 border-t bg-gray-200 flex justify-around">
-                <% unless senator.facebook_account.nil? %>
-                  <%= link_to facebook_helper(senator.facebook_account),
-                              "aria-label": "#{senator.short_title} #{senator.last_name}'s Facebook account." do %>
-                    <i class="fab fa-facebook icon" aria-hidden="true"></i>
-                  <% end %>
-                <% end %>
-                <% unless senator.twitter_account.nil? %>
-                  <%= link_to twitter_helper(senator.twitter_account),
-                              "aria-label": "#{senator.short_title} #{senator.last_name}'s Twitter account." do %>
-                    <i class="fab fa-twitter icon" aria-hidden="true"></i>
-                  <% end %>
-                <% end %>
-                <% unless senator.youtube_account.nil? %>
-                  <%= link_to youtube_helper(senator.youtube_account),
-                              "aria-label": "#{senator.short_title} #{senator.last_name}'s Youtube account." do %>
-                    <i class="fab fa-youtube icon" aria-hidden="true"></i>
-                  <% end %>
-                <% end %>
-                <% unless senator.website.nil? %>
-                  <%= link_to senator.website,
-                              "aria-label": "#{senator.short_title} #{senator.last_name}'s website link." do %>
-                    <i class="fas fa-home icon" aria-hidden="true"></i>
-                  <% end %>
-                <% end %>
-                <% unless senator.contact_form.nil? %>
-                  <%= link_to senator.contact_form,
-                              "aria-label": "#{senator.short_title} #{senator.last_name}'s website link." do %>
-                    <i class="fas fa-envelope-open icon" aria-hidden="true"></i>
-                  <% end %>
-                <% end %>
-                <% unless senator.phone.nil? %>
-                  <a href="tel: <%= phone_helper(senator.phone) %>">
-                    <i class="fas fa-phone-volume icon"></i>
-                  </a>
-                <% end %>
-              </div>
-            </div>
-          </div>
-        </div>
+  <div data-controller="search-senators">
+    <div class="input-group">
+      <%= form_with(url: "/senators",
+                    method: :get, local: true,
+                    data: {action: "submit->search-senators#submit"}) do |f| %>
+        <%= f.text_field :query,
+                         placeholder: "Search Senators by name or State abbreviation ...",
+                         class: "input md:w-2/3",
+                         data: { target: "search-senators.query" } %>
+        <%= f.submit 'Search', class: "btn btn-default" %>
       <% end %>
-
     </div>
-    <div class="mx-auto">
-      <%= will_paginate %>
+    Senators count: <%= @senators.count %>
+
+    <div id="senator-container" data-target="search-senators.senators">
+      <div class="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+        <%= render @senators %>
+      </div>
+      <div class="mx-auto">
+        <%= will_paginate %>
+      </div>
     </div>
   </div>
 </div>
