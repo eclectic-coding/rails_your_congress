@@ -10,7 +10,7 @@
     "@rails/webpacker": "4.3.0",
     "stimulus": "^1.1.1",
     "tailwindcss": "^1.9.5",
-    "tailwindcss-stimulus-components": "^2.0.9",
+    "tailwindcss-stimulus-components": "^2.0.10",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
