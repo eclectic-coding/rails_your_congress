@@ -1,7 +1,17 @@
 class SenatorsController < ApplicationController
 
   def index
-    @senators = Senator.paginate(page: params[:page], per_page: 20)
+    if params[:query].present?
+      @senator_search = Senator.global_search(params[:query])
+      @senators = @senator_search.paginate(page: params[:page], per_page: 20)
+    else
+      @senators = Senator.paginate(page: params[:page], per_page: 20)
+    end
+
+    respond_to do |format|
+      format.html
+      format.json { render json: { senators: @senators } }
+    end
   end
 
   def show

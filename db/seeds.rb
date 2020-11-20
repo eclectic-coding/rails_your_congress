@@ -2,6 +2,6 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
 Dir[File.join(Rails.root, "db", "seeds", "*.rb")].sort.each do |seed|
-  puts "seeding - #{seed}. for reals, yo!"
+  puts "seeding - #{seed}. loading seeds, for real!"
   load seed
 end
