@@ -17,6 +17,7 @@ gem 'sass-rails', '>= 6'
 gem 'sidekiq', '~> 6.1', '>= 6.1.1'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
+gem 'whenever', require: false
 gem 'will_paginate'
 
 group :development, :test do

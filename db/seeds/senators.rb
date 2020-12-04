@@ -9,7 +9,7 @@ senators = senate_data['results'][0]['members']
 # empty string values are assigned in model
 # update seeds w/o adding duplicates/ dropping db
 senators.each do |senator|
-  Senator.create!(
+  Senator.find_or_create_by(
     chamber: 'senate',
     member_id: senator['id'],
     title: senator['title'],

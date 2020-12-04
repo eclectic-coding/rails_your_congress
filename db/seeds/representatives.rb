@@ -8,7 +8,7 @@ representatives = house_data['results'][0]['members']
 
 # update seeds w/o adding duplicates/ dropping db
 representatives.each do |representative|
-  Representative.create!(
+  Representative.find_or_create_by(
     chamber: 'house',
     member_id: representative['id'],
     title: representative['title'],
