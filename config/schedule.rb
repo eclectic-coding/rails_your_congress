@@ -12,12 +12,11 @@
 #   runner "MyModel.some_method"
 #   rake "some:great:rake:task"
 # end
-#
-# every 4.days do
-#   runner "AnotherModel.prune_old_records"
-# end
+
+set :output, "/home/webrev/cron_log.log"
 
 # Learn more: http://github.com/javan/whenever
 every 24.hours do
-  rake "batch:db_update"
+  rake "house:db_update"
+  rake "senate:db_update"
 end

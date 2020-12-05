@@ -98,9 +98,12 @@ ActiveRecord::Schema.define(version: 2020_10_05_171247) do
     t.string "office"
     t.string "phone"
     t.string "state"
-    t.string "district"
     t.decimal "missed_votes_pct"
     t.decimal "votes_with_party_pct"
+    t.string "begin_date"
+    t.string "end_date"
+    t.string "status"
+    t.string "note"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

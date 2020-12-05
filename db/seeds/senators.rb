@@ -3,8 +3,8 @@
   req.headers['X-API-KEY'] = Rails.application.credentials[:propublica_api_key]
 end
 
-senate_data = JSON.parse(@response.body)
-senators = senate_data['results'][0]['members']
+# senate_data = JSON.parse(@response.body)
+senators = JSON.parse(@response.body)['results'][0]['members']
 
 # empty string values are assigned in model
 # update seeds w/o adding duplicates/ dropping db
@@ -32,4 +32,19 @@ senators.each do |senator|
     missed_votes_pct: senator['missed_votes_pct'],
     votes_with_party_pct: senator['votes_with_party_pct'],
     )
+end
+
+# leaving senators
+@leaving_response = Faraday.get 'https://api.propublica.org/congress/v1/116/senate/members/leaving.json' do |req|
+  req.headers['X-API-KEY'] = Rails.application.credentials[:propublica_api_key]
+end
+
+leaving_senators = JSON.parse(@leaving_response.body)['results'][0]['members']
+
+leaving_senators.each do |senator|
+  existing_senator = Senator.find_by(member_id: senator['id'])
+  existing_senator.update(begin_date: senator['begin_date'],
+                          end_date: senator['end_date'],
+                          status: senator['status'],
+                          note: senator['note'])
 end

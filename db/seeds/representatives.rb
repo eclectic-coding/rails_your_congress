@@ -30,6 +30,21 @@ representatives.each do |representative|
     state: representative['state'],
     missed_votes_pct: representative['missed_votes_pct'],
     votes_with_party_pct: representative['votes_with_party_pct'],
-  district: representative['district']
+    district: representative['district']
     )
+end
+
+# leaving representatives
+@leaving_response = Faraday.get 'https://api.propublica.org/congress/v1/116/house/members/leaving.json' do |req|
+  req.headers['X-API-KEY'] = Rails.application.credentials[:propublica_api_key]
+end
+
+leaving_representative = JSON.parse(@leaving_response.body)['results'][0]['members']
+
+leaving_representative.each do |representative|
+  existing_representative = Senator.find_by(member_id: representative['id'])
+  existing_representative.update(begin_date: representative['begin_date'],
+                          end_date: representative['end_date'],
+                          status: representative['status'],
+                          note: representative['note'])
 end
