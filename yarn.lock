@@ -7256,10 +7256,10 @@ svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
-tailwindcss-stimulus-components@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/tailwindcss-stimulus-components/-/tailwindcss-stimulus-components-2.1.0.tgz#abb418ac9095e43cda325d8d7c5401a985ec7e4b"
-  integrity sha512-6JpQ7ZZJAhVIcIUdq5UZC+P90OwK8XeimaWks8iCqxuCPOQrzAAUPmIG8OTGPPdt8hTq71ej7q6nJ1uwxwanuQ==
+tailwindcss-stimulus-components@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/tailwindcss-stimulus-components/-/tailwindcss-stimulus-components-2.1.1.tgz#0b3ccdfe1a27848512f70ec4bcf0985ed26fbda8"
+  integrity sha512-rE4EO6NfTYRsfjlTR1g7/ELx7WcRQb55lQAizNIk8fpGH55CMMfFXl8rIK0hPFL8HNlwQwJ8R6Pjk/+5ui4xZQ==
   dependencies:
     stimulus "^2.0.0"
 
