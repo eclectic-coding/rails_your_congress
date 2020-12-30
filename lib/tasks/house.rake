@@ -36,6 +36,7 @@ namespace :house do
         district: representative['district']
       )
     end
+    puts "House DB updated"
   end
 
 end
