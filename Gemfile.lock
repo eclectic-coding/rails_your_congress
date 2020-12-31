@@ -164,9 +164,6 @@ GEM
     parser (2.7.2.0)
       ast (~> 2.4.1)
     pg (1.2.3)
-    pg_search (2.3.3)
-      activerecord (>= 5.2)
-      activesupport (>= 5.2)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -344,7 +341,6 @@ DEPENDENCIES
   listen (~> 3.2)
   name_of_person
   pg (>= 0.18, < 2.0)
-  pg_search
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.3)
   rspec-rails

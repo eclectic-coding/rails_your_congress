@@ -6,21 +6,8 @@
   </h1>
 
 
-  <div data-controller="search-senators">
-    <div class="input-group">
-      <%= form_with(url: "/senators",
-                    method: :get, local: true,
-                    data: {action: "submit->search-senators#submit"}) do |f| %>
-        <%= f.text_field :query,
-                         placeholder: "Search Senators by name or State abbreviation ...",
-                         class: "input md:w-2/3",
-                         data: { target: "search-senators.query" } %>
-        <%= f.submit 'Search', class: "btn btn-default" %>
-      <% end %>
-    </div>
-    Senators count: <%= @senators.count %>
-
-    <div id="senator-container" data-target="search-senators.senators">
+  <div>
+    <div id="senator-container">
       <div class="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
         <%= render @senators %>
       </div>
