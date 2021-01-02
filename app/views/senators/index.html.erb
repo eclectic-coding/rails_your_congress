@@ -1,19 +1,32 @@
 <%= provide(:title, 'Senators') %>
 
-<div class="container mx-auto">
+<div class="container mx-auto" data-controller="senators">
   <h1 class="text-center text-2xl font-bold leading-loose text-indigo-700 mt-8">
     Senators
   </h1>
 
-
-  <div>
-    <div id="senator-container">
-      <div class="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
-        <%= render @senators %>
-      </div>
-      <div class="mx-auto">
-        <%= will_paginate %>
-      </div>
-    </div>
+  <div class="text-center m-4">
+    <button class="btn__filter-group hover:bg-indigo-700 hover:text-white hover:border-transparent">Alphabetical</button>
+    <button class="btn__filter-group hover:bg-indigo-700 hover:text-white hover:border-transparent" data-reflex="click->SenatorReflex#loyalist">
+      Party Loyalists
+    </button>
+    <button class="btn__filter-group hover:bg-indigo-700 hover:text-white hover:border-transparent">
+      Party Mavericks
+    </button>
+    <button class="btn__filter-group hover:bg-indigo-700 hover:text-white hover:border-transparent">
+      Most Truant
+    </button>
+    <button class="btn__filter-group hover:bg-indigo-700 hover:text-white hover:border-transparent">
+      Longest Serving
+    </button>
+    <button class="btn__filter-group hover:bg-indigo-700 hover:text-white hover:border-transparent">Oldest</button>
   </div>
+
+  <div class="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2" data-reflex="change->SenatorReflex#loyalist">
+    <%= render @senators %>
+  </div>
+  <div class="mx-auto">
+    <%= will_paginate %>
+  </div>
+
 </div>

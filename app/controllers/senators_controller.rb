@@ -7,4 +7,5 @@ class SenatorsController < ApplicationController
   def show
     @senator = Senator.find_by_member_id(params[:id])
   end
+
 end

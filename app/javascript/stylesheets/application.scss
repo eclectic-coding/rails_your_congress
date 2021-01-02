@@ -54,6 +54,13 @@ small, .text-small {
   font-size: var(--text-sm);
 }
 
+.btn__filter-group {
+  @apply bg-transparent;
+  @apply text-indigo-700 font-semibold;
+  @apply py-2 px-4;
+  @apply border border-indigo-700 rounded;
+}
+
 .debug_dump {
   @apply overflow-hidden bg-gray-300 rounded shadow;
   @apply p-4 m-5;
