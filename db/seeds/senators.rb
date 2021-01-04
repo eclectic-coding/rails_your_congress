@@ -1,5 +1,5 @@
 # senators
-@response = Faraday.get 'https://api.propublica.org/congress/v1/116/senate/members.json' do |req|
+@response = Faraday.get 'https://api.propublica.org/congress/v1/117/senate/members.json' do |req|
   req.headers['X-API-KEY'] = Rails.application.credentials[:propublica_api_key]
 end
 
@@ -24,6 +24,7 @@ senators.each do |senator|
     youtube_account: senator['youtube_account'],
     website: senator['url'],
     contact_form: senator['contact_form'],
+    in_office: senator['in_office'],
     seniority: senator['seniority'],
     next_election: senator['next_election'],
     office: senator['office'],
@@ -35,7 +36,7 @@ senators.each do |senator|
 end
 
 # leaving senators
-@leaving_response = Faraday.get 'https://api.propublica.org/congress/v1/116/senate/members/leaving.json' do |req|
+@leaving_response = Faraday.get 'https://api.propublica.org/congress/v1/117/senate/members/leaving.json' do |req|
   req.headers['X-API-KEY'] = Rails.application.credentials[:propublica_api_key]
 end
 
@@ -43,7 +44,7 @@ leaving_senators = JSON.parse(@leaving_response.body)['results'][0]['members']
 
 leaving_senators.each do |senator|
   existing_senator = Senator.find_by(member_id: senator['id'])
-  existing_senator.update(begin_date: senator['begin_date'],
+  existing_senator.update_attributes!(begin_date: senator['begin_date'],
                           end_date: senator['end_date'],
                           status: senator['status'],
                           note: senator['note'])

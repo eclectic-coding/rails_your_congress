@@ -1,5 +1,5 @@
 # house members
-@response = Faraday.get 'https://api.propublica.org/congress/v1/116/house/members.json' do |req|
+@response = Faraday.get 'https://api.propublica.org/congress/v1/117/house/members.json' do |req|
   req.headers['X-API-KEY'] = Rails.application.credentials[:propublica_api_key]
 end
 
@@ -23,6 +23,7 @@ representatives.each do |representative|
     youtube_account: representative['youtube_account'],
     website: representative['url'],
     contact_form: representative['contact_form'],
+    in_office: representative['in_office'],
     seniority: representative['seniority'],
     next_election: representative['next_election'],
     office: representative['office'],
@@ -35,15 +36,15 @@ representatives.each do |representative|
 end
 
 # leaving representatives
-@leaving_response = Faraday.get 'https://api.propublica.org/congress/v1/116/house/members/leaving.json' do |req|
+@leaving_response = Faraday.get 'https://api.propublica.org/congress/v1/117/house/members/leaving.json' do |req|
   req.headers['X-API-KEY'] = Rails.application.credentials[:propublica_api_key]
 end
 
 leaving_representative = JSON.parse(@leaving_response.body)['results'][0]['members']
 
 leaving_representative.each do |representative|
-  existing_representative = Senator.find_by(member_id: representative['id'])
-  existing_representative.update(begin_date: representative['begin_date'],
+  existing_representative = Representative.find_by(member_id: representative['id'])
+  existing_representative.update_attributes!(begin_date: representative['begin_date'],
                           end_date: representative['end_date'],
                           status: representative['status'],
                           note: representative['note'])

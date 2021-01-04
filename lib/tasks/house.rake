@@ -2,7 +2,7 @@ namespace :house do
   desc "TODO"
   task db_update: :environment do
     # house members
-    @response = Faraday.get 'https://api.propublica.org/congress/v1/116/house/members.json' do |req|
+    @response = Faraday.get 'https://api.propublica.org/congress/v1/117/house/members.json' do |req|
       req.headers['X-API-KEY'] = Rails.application.credentials[:propublica_api_key]
     end
 
@@ -26,6 +26,7 @@ namespace :house do
         youtube_account: representative['youtube_account'],
         website: representative['url'],
         contact_form: representative['contact_form'],
+        in_office: representative['in_office'],
         seniority: representative['seniority'],
         next_election: representative['next_election'],
         office: representative['office'],

@@ -3,7 +3,7 @@ namespace :senate do
   task db_update: :environment do
 
     # senators
-    @response = Faraday.get 'https://api.propublica.org/congress/v1/116/senate/members.json' do |req|
+    @response = Faraday.get 'https://api.propublica.org/congress/v1/117/senate/members.json' do |req|
       req.headers['X-API-KEY'] = Rails.application.credentials[:propublica_api_key]
     end
 
@@ -26,6 +26,7 @@ namespace :senate do
         youtube_account: senator['youtube_account'],
         website: senator['url'],
         contact_form: senator['contact_form'],
+        in_office: senator['in_office'],
         seniority: senator['seniority'],
         next_election: senator['next_election'],
         office: senator['office'],
@@ -37,7 +38,7 @@ namespace :senate do
     end
 
     # leaving senators
-    @leaving_response = Faraday.get 'https://api.propublica.org/congress/v1/116/senate/members/leaving.json' do |req|
+    @leaving_response = Faraday.get 'https://api.propublica.org/congress/v1/117/senate/members/leaving.json' do |req|
       req.headers['X-API-KEY'] = Rails.application.credentials[:propublica_api_key]
     end
 
