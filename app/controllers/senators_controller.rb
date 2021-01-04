@@ -1,7 +1,8 @@
 class SenatorsController < ApplicationController
+  include Pagy::Backend
 
   def index
-      @senators = Senator.paginate(page: params[:page], per_page: 20)
+    @pagy, @senators = pagy(Senator.all)
   end
 
   def show

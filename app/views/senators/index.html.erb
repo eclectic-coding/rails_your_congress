@@ -28,8 +28,8 @@
   <div class="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2" id="senators-container">
     <%= render @senators %>
   </div>
-  <div class="mx-auto">
-    <%= will_paginate %>
+  <div class="text-center">
+    <%== pagy_nav(@pagy).html_safe %>
   </div>
 
 </div>

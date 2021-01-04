@@ -9,6 +9,7 @@ gem 'friendly_id', '~> 5.3'
 gem 'image_processing'
 gem 'jbuilder', '~> 2.7'
 gem 'name_of_person'
+gem 'pagy'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'pg_search'
 gem 'puma', '~> 4.1'
@@ -19,7 +20,6 @@ gem 'stimulus_reflex'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
 gem 'whenever', require: false
-gem 'will_paginate'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

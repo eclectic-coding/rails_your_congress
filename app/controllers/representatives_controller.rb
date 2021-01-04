@@ -1,6 +1,8 @@
 class RepresentativesController < ApplicationController
+  include Pagy::Backend
+
   def index
-    @representatives = Representative.paginate(page: params[:page], per_page: 20)
+    @pagy, @representatives = pagy(Representative.all)
   end
 
   def show
