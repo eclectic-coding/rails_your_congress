@@ -7,7 +7,10 @@
 
   <div class="text-center m-4">
     <button class="btn__filter-group hover:bg-indigo-700 hover:text-white hover:border-transparent">Alphabetical</button>
-    <button class="btn__filter-group hover:bg-indigo-700 hover:text-white hover:border-transparent" data-reflex="click->SenatorReflex#loyalist">
+    <button
+      class="btn__filter-group hover:bg-indigo-700 hover:text-white hover:border-transparent"
+      data-reflex="click->SenatorReflex#loyalist"
+    >
       Party Loyalists
     </button>
     <button class="btn__filter-group hover:bg-indigo-700 hover:text-white hover:border-transparent">
@@ -22,7 +25,7 @@
     <button class="btn__filter-group hover:bg-indigo-700 hover:text-white hover:border-transparent">Oldest</button>
   </div>
 
-  <div class="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2" data-reflex="change->SenatorReflex#loyalist">
+  <div class="grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2" id="senators-container">
     <%= render @senators %>
   </div>
   <div class="mx-auto">
