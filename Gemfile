@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.7.1'
+ruby '2.7.2'
 
 gem 'devise', '~> 4.7', '>= 4.7.2'
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -13,7 +13,7 @@ gem 'pagy'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'pg_search'
 gem 'puma', '~> 4.1'
-gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
+gem 'rails', '~> 6.1.0', '>= 6.1.1'
 gem 'sass-rails', '>= 6'
 gem 'sidekiq', '~> 6.1', '>= 6.1.1'
 gem 'stimulus_reflex'
