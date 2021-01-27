@@ -9,7 +9,7 @@
     "@rails/ujs": "^6.1.1",
     "@rails/webpacker": "4.3.0",
     "stimulus": "^2.0.0",
-    "stimulus_reflex": "^3.4.0",
+    "stimulus_reflex": "^3.4.1",
     "tailwindcss": "^1.9.6",
     "tailwindcss-stimulus-components": "^2.1.1",
     "turbolinks": "^5.2.0"
