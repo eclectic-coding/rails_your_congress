@@ -848,6 +848,11 @@
   dependencies:
     purgecss "^3.1.3"
 
+"@hotwired/stimulus@>=3.0.0":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@hotwired/stimulus/-/stimulus-3.0.1.tgz#141f15645acaa3b133b7c247cad58ae252ffae85"
+  integrity sha512-oHsJhgY2cip+K2ED7vKUNd2P+BEswVhrCYcJ802DSsblJFv7mPFVk3cQKvm2vHgHeDVdnj7oOKrBbzp1u8D+KA==
+
 "@npmcli/move-file@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@npmcli/move-file/-/move-file-1.0.1.tgz#de103070dac0f48ce49cf6693c23af59c0f70464"
@@ -7229,12 +7234,12 @@ svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
-tailwindcss-stimulus-components@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/tailwindcss-stimulus-components/-/tailwindcss-stimulus-components-2.2.0.tgz#55b4d6d0179a382866ef8b1d085d0bdabf52306e"
-  integrity sha512-mOLJT5+jVm/PWRMvyx1aIcsKwQb+LRx3+XR3spYAn3CDff1qLW4R/GEz/8bz2cz2IkAn/eLmwzbRGzZSWFRw+w==
+tailwindcss-stimulus-components@^2.2.2:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/tailwindcss-stimulus-components/-/tailwindcss-stimulus-components-2.3.0.tgz#f6e7da33d4bca869da7c798693f02a78b39013dd"
+  integrity sha512-t6cCBt49UeHIFCdDqBWXXIo0MQsiVxgt8zHOK3NEIG63437oijoLuMgo2G86rEBpqzibH0XGvHM2+Jkt1fxHpQ==
   dependencies:
-    stimulus "^2.0.0"
+    "@hotwired/stimulus" ">=3.0.0"
 
 tailwindcss@^1.9.6:
   version "1.9.6"
