@@ -11,7 +11,7 @@
     "stimulus": "^2.0.0",
     "stimulus_reflex": "^3.4.1",
     "tailwindcss": "^1.9.6",
-    "tailwindcss-stimulus-components": "^2.2.2",
+    "tailwindcss-stimulus-components": "^3.0.4",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
